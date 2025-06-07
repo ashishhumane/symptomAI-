@@ -1,4 +1,6 @@
 // Smooth scrolling for navigation links
+console.log('running');
+
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -44,3 +46,5 @@ document.querySelectorAll('.feature-card, .testimonial, .step').forEach(card => 
     card.style.transition = 'all 0.6s ease-out';
     observer.observe(card);
 });
+
+
