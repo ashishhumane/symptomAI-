@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symptom AI - Sign Up</title>
+    <link rel="stylesheet" href="/assets/stylesheets/signup.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <h1>Symptom<span>AI</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="/login" class="login-btn">Login</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <div class="signup-container">
+                <div class="signup-content">
+                    <div class="signup-image">
+                        <img src="/placeholder.svg?height=400&width=400" alt="Medical illustration">
+                        <div class="image-text">
+                            <h2>Your Health Journey Starts Here</h2>
+                            <p>Join thousands of users who trust SymptomAI for accurate health insights.</p>
+                        </div>
+                    </div>
+                    <div class="signup-form">
+                        <h2>Create Your Account</h2>
+                        <p>Get personalized health insights with SymptomAI</p>
+                        
+                        <form id="signupForm">
+                            <div class="form-group">
+                                <label for="fullName">Full Name <span class="required">*</span></label>
+                                <input type="text" id="fullName" name="fullName" required>
+                                <span class="error-message" id="fullNameError"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email Address <span class="required">*</span></label>
+                                <input type="email" id="email" name="email" required>
+                                <span class="error-message" id="emailError"></span>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="password">Password <span class="required">*</span></label>
+                                    <input type="password" id="password" name="password" required>
+                                    <span class="error-message" id="passwordError"></span>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="confirmPassword">Confirm Password <span class="required">*</span></label>
+                                    <input type="password" id="confirmPassword" name="confirmPassword" required>
+                                    <span class="error-message" id="confirmPasswordError"></span>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="dob">Date of Birth <span class="required">*</span></label>
+                                    <input type="date" id="dob" name="dob" required>
+                                    <span class="error-message" id="dobError"></span>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="gender">Gender <span class="required">*</span></label>
+                                    <select id="gender" name="gender" required>
+                                        <option value="">Select</option>
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                        <option value="other">Other</option>
+                                        <option value="prefer-not-to-say">Prefer not to say</option>
+                                    </select>
+                                    <span class="error-message" id="genderError"></span>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="medicalHistory">Medical History (Optional)</label>
+                                <textarea id="medicalHistory" name="medicalHistory" rows="3" placeholder="Any pre-existing conditions or allergies"></textarea>
+                            </div>
+                            
+                            <div class="form-group checkbox-group">
+                                <input type="checkbox" id="terms" name="terms" required>
+                                <label for="terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a> <span class="required">*</span></label>
+                                <span class="error-message" id="termsError"></span>
+                            </div>
+                            
+                            <div class="form-group checkbox-group">
+                                <input type="checkbox" id="newsletter" name="newsletter">
+                                <label for="newsletter">Subscribe to our newsletter for health tips and updates</label>
+                            </div>
+                            
+                            <button type="submit" class="signup-btn">Create Account</button>
+                            
+                            <div class="login-link">
+                                Already have an account? <a href="#">Log in</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+    </div>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2>Symptom<span>AI</span></h2>
+                <p>Your personal health assistant</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 SymptomAI. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="/scripts/signup.js"></script>
+</body>
+</html>

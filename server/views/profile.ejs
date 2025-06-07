@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symp AI - Profile & Settings</title>
+    <link rel="stylesheet" href="/assets/stylesheets/profile.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <h1>Symp<span>AI</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Dashboard</a></li>
+                    <li><a href="#">Symptoms</a></li>
+                    <li><a href="#">Reports</a></li>
+                    <li><a href="#" class="active">Profile</a></li>
+                    <li><a href="#" class="logout-btn">Logout</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <div class="profile-container">
+                <!-- Sidebar Navigation -->
+                <div class="profile-sidebar">
+                    <div class="user-info">
+                        <div class="avatar">
+                            <img src="/placeholder.svg?height=80&width=80" alt="User Avatar" id="avatarImage">
+                            <button class="change-avatar-btn" id="changeAvatarBtn">📷</button>
+                            <input type="file" id="avatarInput" accept="image/*" style="display: none;">
+                        </div>
+                        <h3>John Doe</h3>
+                        <p>Premium Member</p>
+                    </div>
+                    
+                    <nav class="profile-nav">
+                        <ul>
+                            <li><a href="#" class="nav-link active" data-section="profile">👤 User Profile</a></li>
+                            <li><a href="#" class="nav-link" data-section="account">⚙️ Account Settings</a></li>
+                            <li><a href="#" class="nav-link" data-section="privacy">🔒 Privacy Settings</a></li>
+                            <li><a href="#" class="nav-link" data-section="notifications">🔔 Notifications</a></li>
+                            <li><a href="#" class="nav-link" data-section="subscription">💳 Subscription</a></li>
+                            <li><a href="#" class="nav-link" data-section="data-export">📥 Data Export</a></li>
+                            <li><a href="#" class="nav-link danger" data-section="delete-account">🗑️ Delete Account</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <!-- Main Content Area -->
+                <div class="profile-content">
+                    <!-- User Profile Section -->
+                    <div class="content-section active" id="profile-section">
+                        <div class="section-header">
+                            <h2>User Profile</h2>
+                            <p>Manage your personal information and medical history</p>
+                        </div>
+                        
+                        <form class="profile-form" id="profileForm">
+                            <div class="form-section">
+                                <h3>Personal Information</h3>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="firstName">First Name</label>
+                                        <input type="text" id="firstName" name="firstName" value="John">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="lastName">Last Name</label>
+                                        <input type="text" id="lastName" name="lastName" value="Doe">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="dateOfBirth">Date of Birth</label>
+                                        <input type="date" id="dateOfBirth" name="dateOfBirth" value="1990-05-15">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="gender">Gender</label>
+                                        <select id="gender" name="gender">
+                                            <option value="male" selected>Male</option>
+                                            <option value="female">Female</option>
+                                            <option value="other">Other</option>
+                                            <option value="prefer-not-to-say">Prefer not to say</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="height">Height (cm)</label>
+                                        <input type="number" id="height" name="height" value="175">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="weight">Weight (kg)</label>
+                                        <input type="number" id="weight" name="weight" value="70">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="bloodType">Blood Type</label>
+                                    <select id="bloodType" name="bloodType">
+                                        <option value="">Select Blood Type</option>
+                                        <option value="A+">A+</option>
+                                        <option value="A-">A-</option>
+                                        <option value="B+">B+</option>
+                                        <option value="B-">B-</option>
+                                        <option value="AB+">AB+</option>
+                                        <option value="AB-">AB-</option>
+                                        <option value="O+" selected>O+</option>
+                                        <option value="O-">O-</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-section">
+                                <h3>Medical History</h3>
+                                <div class="form-group">
+                                    <label for="conditions">Pre-existing Conditions</label>
+                                    <textarea id="conditions" name="conditions" rows="3" placeholder="List any chronic conditions, diseases, or ongoing health issues">Hypertension, managed with medication</textarea>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="allergies">Allergies</label>
+                                    <textarea id="allergies" name="allergies" rows="3" placeholder="List any known allergies (medications, food, environmental)">Penicillin allergy</textarea>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="medications">Current Medications</label>
+                                    <textarea id="medications" name="medications" rows="3" placeholder="List current medications and dosages">Lisinopril 10mg daily</textarea>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="surgeries">Previous Surgeries</label>
+                                    <textarea id="surgeries" name="surgeries" rows="3" placeholder="List any previous surgeries and dates">Appendectomy (2018)</textarea>
+                                </div>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="submit" class="btn-primary">Save Changes</button>
+                                <button type="button" class="btn-secondary">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Account Settings Section -->
+                    <div class="content-section" id="account-section">
+                        <div class="section-header">
+                            <h2>Account Settings</h2>
+                            <p>Manage your email, password, and account preferences</p>
+                        </div>
+                        
+                        <div class="settings-grid">
+                            <div class="setting-card">
+                                <h3>Email Address</h3>
+                                <p>john.doe@email.com</p>
+                                <button class="btn-outline" id="changeEmailBtn">Change Email</button>
+                            </div>
+                            
+                            <div class="setting-card">
+                                <h3>Password</h3>
+                                <p>Last changed 3 months ago</p>
+                                <button class="btn-outline" id="changePasswordBtn">Change Password</button>
+                            </div>
+                            
+                            <div class="setting-card">
+                                <h3>Two-Factor Authentication</h3>
+                                <p>Add an extra layer of security</p>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="twoFactorToggle">
+                                    <label for="twoFactorToggle" class="toggle-label">
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="setting-card">
+                                <h3>Language</h3>
+                                <select id="languageSelect" class="setting-select">
+                                    <option value="en" selected>English</option>
+                                    <option value="es">Spanish</option>
+                                    <option value="fr">French</option>
+                                    <option value="de">German</option>
+                                </select>
+                            </div>
+                            
+                            <div class="setting-card">
+                                <h3>Time Zone</h3>
+                                <select id="timezoneSelect" class="setting-select">
+                                    <option value="UTC-8">Pacific Time (UTC-8)</option>
+                                    <option value="UTC-5" selected>Eastern Time (UTC-5)</option>
+                                    <option value="UTC+0">GMT (UTC+0)</option>
+                                    <option value="UTC+1">Central European Time (UTC+1)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    Privacy Settings Section
+                    <div class="content-section" id="privacy-section">
+                        <div class="section-header">
+                            <h2>Privacy Settings</h2>
+                            <p>Control how your data is used and shared</p>
+                        </div>
+                        
+                        <div class="privacy-settings">
+                            <div class="privacy-item">
+                                <div class="privacy-info">
+                                    <h3>Data Analytics</h3>
+                                    <p>Allow us to analyze your health data to improve our AI recommendations</p>
+                                </div>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="analyticsToggle" checked>
+                                    <label for="analyticsToggle" class="toggle-label">
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="privacy-item">
+                                <div class="privacy-info">
+                                    <h3>Research Participation</h3>
+                                    <p>Contribute anonymized data to medical research studies</p>
+                                </div>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="researchToggle">
+                                    <label for="researchToggle" class="toggle-label">
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="privacy-item">
+                                <div class="privacy-info">
+                                    <h3>Marketing Communications</h3>
+                                    <p>Receive personalized health tips and product updates</p>
+                                </div>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="marketingToggle" checked>
+                                    <label for="marketingToggle" class="toggle-label">
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="privacy-item">
+                                <div class="privacy-info">
+                                    <h3>Third-party Integrations</h3>
+                                    <p>Allow integration with fitness trackers and health apps</p>
+                                </div>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="integrationsToggle">
+                                    <label for="integrationsToggle" class="toggle-label">
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button class="btn-primary">Save Privacy Settings</button>
+                        </div>
+                    </div>
+
+                    <!-- Notification Settings Section -->
+                    <div class="content-section" id="notifications-section">
+                        <div class="section-header">
+                            <h2>Notification Settings</h2>
+                            <p>Customize your alerts and reminders</p>
+                        </div>
+                        
+                        <div class="notification-settings">
+                            <div class="notification-category">
+                                <h3>Health Reminders</h3>
+                                <div class="notification-item">
+                                    <div class="notification-info">
+                                        <h4>Medication Reminders</h4>
+                                        <p>Get notified when it's time to take your medication</p>
+                                    </div>
+                                    <div class="notification-controls">
+                                        <div class="toggle-switch">
+                                            <input type="checkbox" id="medicationReminders" checked>
+                                            <label for="medicationReminders" class="toggle-label">
+                                                <span class="toggle-slider"></span>
+                                            </label>
+                                        </div>
+                                        <select class="time-select">
+                                            <option value="15">15 min before</option>
+                                            <option value="30" selected>30 min before</option>
+                                            <option value="60">1 hour before</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="notification-item">
+                                    <div class="notification-info">
+                                        <h4>Symptom Check-ins</h4>
+                                        <p>Daily reminders to log your symptoms</p>
+                                    </div>
+                                    <div class="notification-controls">
+                                        <div class="toggle-switch">
+                                            <input type="checkbox" id="symptomCheckins" checked>
+                                            <label for="symptomCheckins" class="toggle-label">
+                                                <span class="toggle-slider"></span>
+                                            </label>
+                                        </div>
+                                        <select class="time-select">
+                                            <option value="morning">Morning</option>
+                                            <option value="afternoon">Afternoon</option>
+                                            <option value="evening" selected>Evening</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="notification-category">
+                                <h3>System Notifications</h3>
+                                <div class="notification-item">
+                                    <div class="notification-info">
+                                        <h4>AI Analysis Complete</h4>
+                                        <p>Get notified when your symptom analysis is ready</p>
+                                    </div>
+                                    <div class="toggle-switch">
+                                        <input type="checkbox" id="analysisComplete" checked>
+                                        <label for="analysisComplete" class="toggle-label">
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="notification-item">
+                                    <div class="notification-info">
+                                        <h4>Security Alerts</h4>
+                                        <p>Important security and account notifications</p>
+                                    </div>
+                                    <div class="toggle-switch">
+                                        <input type="checkbox" id="securityAlerts" checked disabled>
+                                        <label for="securityAlerts" class="toggle-label">
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button class="btn-primary">Save Notification Settings</button>
+                        </div>
+                    </div>
+
+                    <!-- Subscription Management Section -->
+                    <div class="content-section" id="subscription-section">
+                        <div class="section-header">
+                            <h2>Subscription Management</h2>
+                            <p>Manage your billing and subscription plan</p>
+                        </div>
+                        
+                        <div class="subscription-info">
+                            <div class="current-plan">
+                                <div class="plan-header">
+                                    <h3>Current Plan: Premium</h3>
+                                    <span class="plan-badge">Active</span>
+                                </div>
+                                <div class="plan-details">
+                                    <p><strong>$19.99/month</strong></p>
+                                    <p>Next billing date: March 15, 2025</p>
+                                    <p>Unlimited symptom analyses, priority support, advanced AI insights</p>
+                                </div>
+                                <div class="plan-actions">
+                                    <button class="btn-outline">Change Plan</button>
+                                    <button class="btn-outline">Cancel Subscription</button>
+                                </div>
+                            </div>
+                            
+                            <div class="billing-history">
+                                <h3>Billing History</h3>
+                                <div class="billing-item">
+                                    <div class="billing-info">
+                                        <span class="billing-date">Feb 15, 2025</span>
+                                        <span class="billing-description">Premium Plan - Monthly</span>
+                                    </div>
+                                    <div class="billing-amount">$19.99</div>
+                                    <button class="btn-link">Download</button>
+                                </div>
+                                <div class="billing-item">
+                                    <div class="billing-info">
+                                        <span class="billing-date">Jan 15, 2025</span>
+                                        <span class="billing-description">Premium Plan - Monthly</span>
+                                    </div>
+                                    <div class="billing-amount">$19.99</div>
+                                    <button class="btn-link">Download</button>
+                                </div>
+                                <div class="billing-item">
+                                    <div class="billing-info">
+                                        <span class="billing-date">Dec 15, 2024</span>
+                                        <span class="billing-description">Premium Plan - Monthly</span>
+                                    </div>
+                                    <div class="billing-amount">$19.99</div>
+                                    <button class="btn-link">Download</button>
+                                </div>
+                            </div>
+                            
+                            <div class="payment-method">
+                                <h3>Payment Method</h3>
+                                <div class="payment-card">
+                                    <div class="card-info">
+                                        <span class="card-type">💳 Visa</span>
+                                        <span class="card-number">**** **** **** 1234</span>
+                                        <span class="card-expiry">Expires 12/26</span>
+                                    </div>
+                                    <button class="btn-outline">Update</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Data Export Section -->
+                    <div class="content-section" id="data-export-section">
+                        <div class="section-header">
+                            <h2>Data Export</h2>
+                            <p>Download your personal data and health records</p>
+                        </div>
+                        
+                        <div class="export-options">
+                            <div class="export-card">
+                                <h3>Complete Health Profile</h3>
+                                <p>All your personal information, medical history, and symptom records</p>
+                                <div class="export-details">
+                                    <span>Format: JSON, PDF</span>
+                                    <span>Size: ~2.5 MB</span>
+                                </div>
+                                <button class="btn-primary" id="exportHealthProfile">Request Export</button>
+                            </div>
+                            
+                            <div class="export-card">
+                                <h3>Symptom Analysis History</h3>
+                                <p>All your symptom analyses and AI recommendations</p>
+                                <div class="export-details">
+                                    <span>Format: CSV, PDF</span>
+                                    <span>Size: ~1.2 MB</span>
+                                </div>
+                                <button class="btn-primary" id="exportSymptomHistory">Request Export</button>
+                            </div>
+                            
+                            <div class="export-card">
+                                <h3>Account Activity</h3>
+                                <p>Login history, settings changes, and account activities</p>
+                                <div class="export-details">
+                                    <span>Format: CSV</span>
+                                    <span>Size: ~0.3 MB</span>
+                                </div>
+                                <button class="btn-primary" id="exportAccountActivity">Request Export</button>
+                            </div>
+                        </div>
+                        
+                        <div class="export-info">
+                            <h3>Export Information</h3>
+                            <ul>
+                                <li>Data exports are processed within 24-48 hours</li>
+                                <li>You'll receive an email with download links when ready</li>
+                                <li>Download links expire after 7 days for security</li>
+                                <li>All exported data is encrypted and password-protected</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Delete Account Section -->
+                    <div class="content-section" id="delete-account-section">
+                        <div class="section-header">
+                            <h2>Delete Account</h2>
+                            <p>Permanently delete your account and all associated data</p>
+                        </div>
+                        
+                        <div class="delete-warning">
+                            <div class="warning-icon">⚠️</div>
+                            <div class="warning-content">
+                                <h3>This action cannot be undone</h3>
+                                <p>Deleting your account will permanently remove:</p>
+                                <ul>
+                                    <li>All your personal information and medical history</li>
+                                    <li>Symptom analyses and AI recommendations</li>
+                                    <li>Account settings and preferences</li>
+                                    <li>Subscription and billing information</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="delete-options">
+                            <div class="option-card">
+                                <h3>Temporary Deactivation</h3>
+                                <p>Hide your account temporarily. You can reactivate it anytime within 30 days.</p>
+                                <button class="btn-outline">Deactivate Account</button>
+                            </div>
+                            
+                            <div class="option-card danger">
+                                <h3>Permanent Deletion</h3>
+                                <p>Completely delete your account and all data. This cannot be reversed.</p>
+                                <button class="btn-danger" id="deleteAccountBtn">Delete Account</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>Symptom<span>AI</span></h2>
+                    <p>Your personal health assistant</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>Company</h3>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Press</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Resources</h3>
+                        <ul>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Legal</h3>
+                        <ul>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Cookie Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 SymptomAI. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Modals -->
+    <div id="changeEmailModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Change Email Address</h3>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="changeEmailForm">
+                    <div class="form-group">
+                        <label for="newEmail">New Email Address</label>
+                        <input type="email" id="newEmail" name="newEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" required>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">Update Email</button>
+                        <button type="button" class="btn-secondary modal-close">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="changePasswordModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Change Password</h3>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="changePasswordForm">
+                    <div class="form-group">
+                        <label for="currentPassword">Current Password</label>
+                        <input type="password" id="currentPassword" name="currentPassword" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="newPassword">New Password</label>
+                        <input type="password" id="newPassword" name="newPassword" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmNewPassword">Confirm New Password</label>
+                        <input type="password" id="confirmNewPassword" name="confirmNewPassword" required>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">Update Password</button>
+                        <button type="button" class="btn-secondary modal-close">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="deleteAccountModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Confirm Account Deletion</h3>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="delete-confirmation">
+                    <p>Are you absolutely sure you want to delete your account?</p>
+                    <p><strong>This action cannot be undone.</strong></p>
+                    <div class="form-group">
+                        <label for="deleteConfirmation">Type "DELETE" to confirm:</label>
+                        <input type="text" id="deleteConfirmation" name="deleteConfirmation" required>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn-danger" id="confirmDeleteBtn" disabled>Delete My Account</button>
+                        <button type="button" class="btn-secondary modal-close">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/scripts/profile.js"></script>
+</body>
+</html>

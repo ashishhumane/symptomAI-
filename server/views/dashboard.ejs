@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - SymptomTracker AI</title>
+    <link rel="stylesheet" href="/assets/stylesheets/dashboard.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">SymptomTracker AI</div>
+            <div class="header-actions">
+                <button class="emergency-btn">🚨 Emergency</button>
+                <div class="user-profile">
+                    <div class="user-avatar">JD</div>
+                    <span>John Doe</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Layout -->
+    <div class="main-layout">
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Health Status Card -->
+            <div class="card health-status">
+                <div class="card-header">
+                    <h2 class="card-title">Health Overview</h2>
+                    <span class="card-icon">💚</span>
+                </div>
+                <div class="health-score-container">
+                    <div class="health-score">
+                        <svg class="progress-ring" width="120" height="120">
+                            <circle class="progress-ring-circle" cx="60" cy="60" r="50"></circle>
+                            <circle class="progress-ring-progress" cx="60" cy="60" r="50"></circle>
+                        </svg>
+                        <div class="score-text">
+                            <div class="score-number">78</div>
+                            <div class="score-label">Health Score</div>
+                        </div>
+                    </div>
+                    <div class="health-details">
+                        <div class="health-metric">
+                            <span>🌡️ Temperature</span>
+                            <span>98.6°F</span>
+                        </div>
+                        <div class="health-metric">
+                            <span>💓 Heart Rate</span>
+                            <span>72 BPM</span>
+                        </div>
+                        <div class="health-metric">
+                            <span>🩸 Blood Pressure</span>
+                            <span>120/80</span>
+                        </div>
+                        <div class="health-metric">
+                            <span>😴 Sleep Quality</span>
+                            <span>Good</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Symptoms -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Recent Symptoms</h3>
+                    <span class="card-icon">📋</span>
+                </div>
+                <div class="symptom-timeline">
+                    <div class="symptom-item">
+                        <div class="symptom-severity severity-moderate"></div>
+                        <div class="symptom-info">
+                            <div class="symptom-name">Headache</div>
+                            <div class="symptom-time">2 hours ago</div>
+                        </div>
+                    </div>
+                    <div class="symptom-item">
+                        <div class="symptom-severity severity-mild"></div>
+                        <div class="symptom-info">
+                            <div class="symptom-name">Fatigue</div>
+                            <div class="symptom-time">5 hours ago</div>
+                        </div>
+                    </div>
+                    <div class="symptom-item">
+                        <div class="symptom-severity severity-severe"></div>
+                        <div class="symptom-info">
+                            <div class="symptom-name">Nausea</div>
+                            <div class="symptom-time">Yesterday</div>
+                        </div>
+                    </div>
+                    <div class="symptom-item">
+                        <div class="symptom-severity severity-mild"></div>
+                        <div class="symptom-info">
+                            <div class="symptom-name">Joint Pain</div>
+                            <div class="symptom-time">2 days ago</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Medication Tracker -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Today's Medications</h3>
+                    <span class="card-icon">💊</span>
+                </div>
+                <div class="med-grid">
+                    <button class="med-pill taken">
+                        Aspirin
+                        <div class="med-time">8:00 AM ✓</div>
+                    </button>
+                    <button class="med-pill">
+                        Vitamins
+                        <div class="med-time">12:00 PM</div>
+                    </button>
+                    <button class="med-pill missed">
+                        Metformin
+                        <div class="med-time">2:00 PM ⚠️</div>
+                    </button>
+                    <button class="med-pill">
+                        Omega-3
+                        <div class="med-time">6:00 PM</div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Trend Charts -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Weekly Trends</h3>
+                    <span class="card-icon">📈</span>
+                </div>
+                <div class="chart-container" id="trendChart">
+                    <!-- Chart bars will be generated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Upcoming Appointments -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Upcoming Appointments</h3>
+                    <span class="card-icon">📅</span>
+                </div>
+                <div class="appointment-item">
+                    <div class="appointment-date">
+                        <div>15</div>
+                        <div style="font-size: 0.7rem;">JUN</div>
+                    </div>
+                    <div class="appointment-info">
+                        <div class="appointment-type">🩺 General Checkup</div>
+                        <div class="appointment-doctor">Dr. Sarah Johnson</div>
+                    </div>
+                </div>
+                <div class="appointment-item">
+                    <div class="appointment-date">
+                        <div>22</div>
+                        <div style="font-size: 0.7rem;">JUN</div>
+                    </div>
+                    <div class="appointment-info">
+                        <div class="appointment-type">🦷 Dental Cleaning</div>
+                        <div class="appointment-doctor">Dr. Mike Chen</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <!-- Quick Symptom Log -->
+            <div class="quick-symptom-log">
+                <h3 class="section-title">Quick Log</h3>
+                <input type="text" class="symptom-input" placeholder="What symptoms are you experiencing?">
+                <div class="severity-selector">
+                    <button class="severity-btn" data-severity="mild">Mild</button>
+                    <button class="severity-btn" data-severity="moderate">Moderate</button>
+                    <button class="severity-btn" data-severity="severe">Severe</button>
+                </div>
+                <button class="log-btn">Log Symptom</button>
+            </div>
+
+            <!-- Recent Medications -->
+            <div style="margin-bottom: 2rem;">
+                <h3 class="section-title">Recent Medications</h3>
+                <div class="recent-med-item">
+                    <div>
+                        <div class="med-name">Aspirin</div>
+                        <div class="med-dosage">81mg</div>
+                    </div>
+                    <span>✓</span>
+                </div>
+                <div class="recent-med-item">
+                    <div>
+                        <div class="med-name">Vitamin D</div>
+                        <div class="med-dosage">1000 IU</div>
+                    </div>
+                    <span>⏰</span>
+                </div>
+                <div class="recent-med-item">
+                    <div>
+                        <div class="med-name">Metformin</div>
+                        <div class="med-dosage">500mg</div>
+                    </div>
+                    <span>⚠️</span>
+                </div>
+            </div>
+
+            <!-- Upcoming Reminders -->
+            <div>
+                <h3 class="section-title">Reminders</h3>
+                <div class="reminder-item">
+                    <span class="reminder-time">2:00 PM</span>
+                    <span>Take Metformin</span>
+                </div>
+                <div class="reminder-item">
+                    <span class="reminder-time">6:00 PM</span>
+                    <span>Evening Vitamins</span>
+                </div>
+                <div class="reminder-item">
+                    <span class="reminder-time">9:00 PM</span>
+                    <span>Blood Pressure Check</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Log Button -->
+    <button class="quick-log-btn" title="Quick Log Symptom">+</button>
+
+
+</body>
+<script src="/scripts/dashboard.js"></script>
+</html>

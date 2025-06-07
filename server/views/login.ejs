@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symptom AI - Login</title>
+    <link rel="stylesheet" href="/assets/stylesheets/login.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <script src="https://kit.fontawesome.com/64b6eb9656.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <h1>Symptom<span>AI</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="/signup" class="signup-btn">Sign Up</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <div class="login-container">
+                <div class="login-content">
+                    <div class="login-image">
+                        <img src="/placeholder.svg?height=350&width=350" alt="Medical professional with stethoscope">
+                        <div class="image-text">
+                            <h2>Welcome Back!</h2>
+                            <p>Continue your health journey with personalized AI-powered insights.</p>
+                            <div class="features">
+                                <div class="feature">
+                                    <span class="feature-icon">🔒</span>
+                                    <span>Secure & Private</span>
+                                </div>
+                                <div class="feature">
+                                    <span class="feature-icon">⚡</span>
+                                    <span>Instant Analysis</span>
+                                </div>
+                                <div class="feature">
+                                    <span class="feature-icon">🎯</span>
+                                    <span>Personalized Results</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="login-form">
+                        <h2>Sign In to Your Account</h2>
+                        <p>Access your personalized health dashboard</p>
+
+                        <form id="loginForm">
+                            <div class="form-group">
+                                <label for="email">Email Address <span class="required">*</span></label>
+                                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                                <span class="error-message" id="emailError"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="password">Password <span class="required">*</span></label>
+                                <div class="password-input">
+                                    <input type="password" id="password" name="password"
+                                        placeholder="Enter your password" required>
+                                    <button type="button" class="toggle-password" id="togglePassword">
+                                        <span class="eye-icon"><i class="fa-regular fa-eye"></i></span>
+                                    </button>
+                                </div>
+                                <span class="error-message" id="passwordError"></span>
+                            </div>
+
+                            <div class="form-options">
+                                <div class="remember-me">
+                                    <input type="checkbox" id="rememberMe" name="rememberMe">
+                                    <label for="rememberMe">Remember me</label>
+                                </div>
+                                <a href="#" class="forgot-password">Forgot Password?</a>
+                            </div>
+
+                            <button type="submit" class="login-btn">Sign In</button>
+
+                            <div class="divider">
+                                <span>or</span>
+                            </div>
+
+                            <div class="social-login">
+                                <button type="button" class="social-btn google-btn">
+                                    <img src="/placeholder.svg?height=20&width=20" alt="Google">
+                                    Continue with Google
+                                </button>
+                                <button type="button" class="social-btn apple-btn">
+                                    <img src="/placeholder.svg?height=20&width=20" alt="Apple">
+                                    Continue with Apple
+                                </button>
+                            </div>
+
+                            <div class="signup-link">
+                                Don't have an account? <a href="/signup">Create one</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+    </div>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2>Symptom<span>AI</span></h2>
+                <p>Your personal health assistant</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 SymptomAI. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Forgot Password Modal -->
+    <div id="forgotPasswordModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Reset Your Password</h3>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Enter your email address and we'll send you a link to reset your password.</p>
+                <form id="forgotPasswordForm">
+                    <div class="form-group">
+                        <label for="resetEmail">Email Address</label>
+                        <input type="email" id="resetEmail" name="resetEmail" placeholder="Enter your email" required>
+                        <span class="error-message" id="resetEmailError"></span>
+                    </div>
+                    <button type="submit" class="reset-btn">Send Reset Link</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="/scripts/login.js"></script>
+</body>
+
+</html>
