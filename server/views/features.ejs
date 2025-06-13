@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SympAI - Features</title>
+    <link rel="stylesheet" href="/assets/stylesheets/features.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <h1>Symp<span>AI</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/features" class="active">Features</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/login" class="login-btn">Login</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <div class="hero-content">
+                    <h1>Powerful AI-Driven Health Features</h1>
+                    <p>Discover how Symptom AI transforms your health monitoring experience with cutting-edge artificial intelligence and intuitive design.</p>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">95%</div>
+                            <div class="stat-label">Accuracy Rate</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">500K+</div>
+                            <div class="stat-label">Users Trust Us</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">AI Availability</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Feature Categories -->
+            <section class="feature-categories">
+                <div class="section-header">
+                    <h2>Explore Our Features</h2>
+                    <p>Choose a category to learn more about our capabilities</p>
+                </div>
+                
+                <div class="category-tabs">
+                    <button class="tab-btn active" data-category="ai-analysis">🧠 AI Analysis</button>
+                    <button class="tab-btn" data-category="tracking">📊 Health Tracking</button>
+                    <button class="tab-btn" data-category="insights">💡 Smart Insights</button>
+                    <button class="tab-btn" data-category="integration">🔗 Integration</button>
+                </div>
+            </section>
+
+            <!-- AI Analysis Features -->
+            <section class="feature-category active" id="ai-analysis">
+                <div class="feature-grid">
+                    <!-- Intelligent Symptom Analysis -->
+                    <div class="feature-card featured">
+                        <div class="feature-header">
+                            <div class="feature-icon">🎯</div>
+                            <h3>Intelligent Symptom Analysis</h3>
+                            <span class="feature-badge">Core Feature</span>
+                        </div>
+                        <p>Our advanced AI analyzes your symptoms using machine learning algorithms trained on millions of medical cases to provide accurate health insights.</p>
+                        
+                        <div class="demo-container">
+                            <div class="demo-title">Try the Demo:</div>
+                            <div class="symptom-demo">
+                                <div class="demo-input">
+                                    <input type="text" placeholder="Describe your symptoms..." id="symptomInput" class="demo-field">
+                                    <button class="demo-btn" id="analyzeBtn">Analyze</button>
+                                </div>
+                                <div class="demo-results" id="demoResults"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-details">
+                            <h4>Key Capabilities:</h4>
+                            <ul>
+                                <li>Natural language processing for symptom description</li>
+                                <li>Pattern recognition across multiple symptoms</li>
+                                <li>Risk assessment and urgency classification</li>
+                                <li>Personalized recommendations based on your health profile</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Real-time Health Monitoring -->
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">⚡</div>
+                            <h3>Real-time Health Monitoring</h3>
+                        </div>
+                        <p>Continuous monitoring of your health patterns with instant alerts for concerning changes or trends.</p>
+                        
+                        <div class="demo-container">
+                            <div class="health-monitor">
+                                <div class="monitor-display">
+                                    <div class="vital-sign">
+                                        <span class="vital-label">Heart Rate</span>
+                                        <span class="vital-value" id="heartRate">72</span>
+                                        <span class="vital-unit">bpm</span>
+                                    </div>
+                                    <div class="vital-sign">
+                                        <span class="vital-label">Sleep Quality</span>
+                                        <span class="vital-value" id="sleepQuality">85</span>
+                                        <span class="vital-unit">%</span>
+                                    </div>
+                                    <div class="vital-sign">
+                                        <span class="vital-label">Stress Level</span>
+                                        <span class="vital-value" id="stressLevel">Low</span>
+                                    </div>
+                                </div>
+                                <div class="monitor-chart">
+                                    <canvas id="healthChart" width="300" height="150"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Predictive Health Analytics -->
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">🔮</div>
+                            <h3>Predictive Health Analytics</h3>
+                        </div>
+                        <p>AI-powered predictions to help you stay ahead of potential health issues before they become serious.</p>
+                        
+                        <div class="demo-container">
+                            <div class="prediction-demo">
+                                <div class="prediction-item">
+                                    <div class="prediction-icon">🤧</div>
+                                    <div class="prediction-content">
+                                        <div class="prediction-title">Cold Risk Assessment</div>
+                                        <div class="prediction-probability">
+                                            <div class="probability-bar">
+                                                <div class="probability-fill" style="width: 25%"></div>
+                                            </div>
+                                            <span>25% chance in next 7 days</span>
+                                        </div>
+                                        <div class="prediction-factors">Based on: Weather changes, sleep patterns, stress levels</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="prediction-item">
+                                    <div class="prediction-icon">😰</div>
+                                    <div class="prediction-content">
+                                        <div class="prediction-title">Migraine Alert</div>
+                                        <div class="prediction-probability">
+                                            <div class="probability-bar">
+                                                <div class="probability-fill" style="width: 60%"></div>
+                                            </div>
+                                            <span>60% chance today</span>
+                                        </div>
+                                        <div class="prediction-factors">Based on: Barometric pressure, caffeine intake, sleep quality</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Health Tracking Features -->
+            <section class="feature-category" id="tracking">
+                <div class="feature-grid">
+                    <!-- Comprehensive Symptom Logging -->
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">📝</div>
+                            <h3>Comprehensive Symptom Logging</h3>
+                        </div>
+                        <p>Detailed symptom tracking with interactive body diagrams, severity scales, and contextual information.</p>
+                        
+                        <div class="demo-container">
+                            <div class="logging-demo">
+                                <div class="body-diagram-mini">
+                                    <svg viewBox="0 0 100 200" class="mini-body">
+                                        <ellipse cx="50" cy="25" rx="15" ry="17" class="body-part-mini" data-part="head"/>
+                                        <rect x="35" y="40" width="30" height="40" rx="5" class="body-part-mini" data-part="torso"/>
+                                        <rect x="20" y="45" width="15" height="35" rx="7" class="body-part-mini" data-part="left-arm"/>
+                                        <rect x="65" y="45" width="15" height="35" rx="7" class="body-part-mini" data-part="right-arm"/>
+                                        <rect x="40" y="80" width="9" height="50" rx="4" class="body-part-mini" data-part="left-leg"/>
+                                        <rect x="51" y="80" width="9" height="50" rx="4" class="body-part-mini" data-part="right-leg"/>
+                                    </svg>
+                                </div>
+                                <div class="severity-demo">
+                                    <div class="severity-title">Pain Level</div>
+                                    <div class="severity-scale-mini">
+                                        <div class="severity-dot" data-level="1">1</div>
+                                        <div class="severity-dot" data-level="2">2</div>
+                                        <div class="severity-dot" data-level="3">3</div>
+                                        <div class="severity-dot active" data-level="4">4</div>
+                                        <div class="severity-dot" data-level="5">5</div>
+                                    </div>
+                                    <div class="severity-label">Moderate</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-benefits">
+                            <div class="benefit-item">
+                                <span class="benefit-icon">🎯</span>
+                                <span>Precise location tracking</span>
+                            </div>
+                            <div class="benefit-item">
+                                <span class="benefit-icon">📊</span>
+                                <span>Severity measurement</span>
+                            </div>
+                            <div class="benefit-item">
+                                <span class="benefit-icon">⏰</span>
+                                <span>Timeline tracking</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Medication Management -->
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">💊</div>
+                            <h3>Smart Medication Management</h3>
+                        </div>
+                        <p>Track medications, set reminders, monitor side effects, and receive interaction warnings.</p>
+                        
+                        <div class="demo-container">
+                            <div class="medication-demo">
+                                <div class="med-schedule">
+                                    <div class="schedule-header">Today's Schedule</div>
+                                    <div class="med-item">
+                                        <div class="med-time">8:00 AM</div>
+                                        <div class="med-info">
+                                            <div class="med-name">Lisinopril 10mg</div>
+                                            <div class="med-status taken">✓ Taken</div>
+                                        </div>
+                                    </div>
+                                    <div class="med-item">
+                                        <div class="med-time">2:00 PM</div>
+                                        <div class="med-info">
+                                            <div class="med-name">Vitamin D 1000IU</div>
+                                            <div class="med-status pending">⏰ Pending</div>
+                                        </div>
+                                    </div>
+                                    <div class="med-item">
+                                        <div class="med-time">8:00 PM</div>
+                                        <div class="med-info">
+                                            <div class="med-name">Omega-3 Fish Oil</div>
+                                            <div class="med-status upcoming">📅 Upcoming</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Health Trends Analysis -->
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">📈</div>
+                            <h3>Health Trends Analysis</h3>
+                        </div>
+                        <p>Visualize your health patterns over time with interactive charts and trend analysis.</p>
+                        
+                        <div class="demo-container">
+                            <div class="trends-demo">
+                                <div class="trend-selector">
+                                    <button class="trend-btn active" data-trend="symptoms">Symptoms</button>
+                                    <button class="trend-btn" data-trend="mood">Mood</button>
+                                    <button class="trend-btn" data-trend="energy">Energy</button>
+                                </div>
+                                <div class="trend-chart">
+                                    <canvas id="trendsChart" width="400" height="200"></canvas>
+                                </div>
+                                <div class="trend-insights">
+                                    <div class="insight-item">
+                                        <span class="insight-icon">📊</span>
+                                        <span>Headaches decreased 40% this month</span>
+                                    </div>
+                                    <div class="insight-item">
+                                        <span class="insight-icon">🌙</span>
+                                        <span>Better sleep correlates with fewer symptoms</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Smart Insights Features -->
+            <section class="feature-category" id="insights">
+                <div class="feature-grid">
+                    <!-- Personalized Recommendations -->
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">🎯</div>
+                            <h3>Personalized Health Recommendations</h3>
+                        </div>
+                        <p>AI-generated recommendations tailored to your specific health profile and patterns.</p>
+                        
+                        <div class="demo-container">
+                            <div class="recommendations-demo">
+                                <div class="recommendation-card">
+                                    <div class="rec-icon">💧</div>
+                                    <div class="rec-content">
+                                        <div class="rec-title">Increase Water Intake</div>
+                                        <div class="rec-description">Your headache patterns suggest dehydration. Try drinking 2 more glasses of water daily.</div>
+                                        <div class="rec-confidence">Confidence: 85%</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="recommendation-card">
+                                    <div class="rec-icon">🧘</div>
+                                    <div class="rec-content">
+                                        <div class="rec-title">Stress Management</div>
+                                        <div class="rec-description">Consider meditation or breathing exercises during high-stress periods.</div>
+                                        <div class="rec-confidence">Confidence: 78%</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="recommendation-card">
+                                    <div class="rec-icon">😴</div>
+                                    <div class="rec-content">
+                                        <div class="rec-title">Sleep Schedule</div>
+                                        <div class="rec-description">Maintaining consistent bedtime could reduce fatigue episodes by 30%.</div>
+                                        <div class="rec-confidence">Confidence: 92%</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Risk Assessment -->
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">⚠️</div>
+                            <h3>Intelligent Risk Assessment</h3>
+                        </div>
+                        <p>Continuous evaluation of health risks with early warning systems and preventive guidance.</p>
+                        
+                        <div class="demo-container">
+                            <div class="risk-assessment">
+                                <div class="risk-overview">
+                                    <div class="risk-score">
+                                        <div class="score-circle">
+                                            <div class="score-value">7.2</div>
+                                            <div class="score-label">Health Score</div>
+                                        </div>
+                                    </div>
+                                    <div class="risk-factors">
+                                        <div class="factor-item low">
+                                            <span class="factor-name">Cardiovascular</span>
+                                            <span class="factor-level">Low Risk</span>
+                                        </div>
+                                        <div class="factor-item medium">
+                                            <span class="factor-name">Stress-related</span>
+                                            <span class="factor-level">Medium Risk</span>
+                                        </div>
+                                        <div class="factor-item low">
+                                            <span class="factor-name">Metabolic</span>
+                                            <span class="factor-level">Low Risk</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Health Reports -->
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">📋</div>
+                            <h3>Comprehensive Health Reports</h3>
+                        </div>
+                        <p>Detailed reports for healthcare providers with AI-generated summaries and insights.</p>
+                        
+                        <div class="demo-container">
+                            <div class="report-demo">
+                                <div class="report-preview">
+                                    <div class="report-header">
+                                        <div class="report-title">Monthly Health Summary</div>
+                                        <div class="report-date">December 2024</div>
+                                    </div>
+                                    <div class="report-sections">
+                                        <div class="report-section">
+                                            <div class="section-title">📊 Symptom Overview</div>
+                                            <div class="section-content">15 logged symptoms, 60% improvement</div>
+                                        </div>
+                                        <div class="report-section">
+                                            <div class="section-title">💊 Medication Adherence</div>
+                                            <div class="section-content">95% compliance rate</div>
+                                        </div>
+                                        <div class="report-section">
+                                            <div class="section-title">🎯 Key Insights</div>
+                                            <div class="section-content">Sleep quality strongly correlates with symptom severity</div>
+                                        </div>
+                                    </div>
+                                    <button class="report-download">📥 Download Full Report</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Integration Features -->
+            <section class="feature-category" id="integration">
+                <div class="feature-grid">
+                    <!-- Wearable Device Integration -->
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">⌚</div>
+                            <h3>Wearable Device Integration</h3>
+                        </div>
+                        <p>Seamlessly connect with popular fitness trackers and smartwatches for automatic health data collection.</p>
+                        
+                        <div class="demo-container">
+                            <div class="integration-demo">
+                                <div class="device-grid">
+                                    <div class="device-item connected">
+                                        <div class="device-icon">⌚</div>
+                                        <div class="device-name">Apple Watch</div>
+                                        <div class="device-status">Connected</div>
+                                    </div>
+                                    <div class="device-item connected">
+                                        <div class="device-icon">📱</div>
+                                        <div class="device-name">Fitbit Versa</div>
+                                        <div class="device-status">Connected</div>
+                                    </div>
+                                    <div class="device-item">
+                                        <div class="device-icon">🏃</div>
+                                        <div class="device-name">Garmin</div>
+                                        <div class="device-status">Available</div>
+                                    </div>
+                                    <div class="device-item">
+                                        <div class="device-icon">💍</div>
+                                        <div class="device-name">Oura Ring</div>
+                                        <div class="device-status">Available</div>
+                                    </div>
+                                </div>
+                                <div class="sync-status">
+                                    <div class="sync-item">
+                                        <span class="sync-icon">❤️</span>
+                                        <span>Heart Rate: Synced 2 min ago</span>
+                                    </div>
+                                    <div class="sync-item">
+                                        <span class="sync-icon">👟</span>
+                                        <span>Steps: Synced 5 min ago</span>
+                                    </div>
+                                    <div class="sync-item">
+                                        <span class="sync-icon">😴</span>
+                                        <span>Sleep: Synced this morning</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Healthcare Provider Portal -->
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">👩‍⚕️</div>
+                            <h3>Healthcare Provider Portal</h3>
+                        </div>
+                        <p>Share your health data securely with healthcare providers for better informed consultations.</p>
+                        
+                        <div class="demo-container">
+                            <div class="provider-demo">
+                                <div class="provider-list">
+                                    <div class="provider-item">
+                                        <div class="provider-avatar">👨‍⚕️</div>
+                                        <div class="provider-info">
+                                            <div class="provider-name">Dr. Sarah Johnson</div>
+                                            <div class="provider-specialty">Primary Care</div>
+                                            <div class="provider-access">Full Access</div>
+                                        </div>
+                                        <div class="provider-actions">
+                                            <button class="share-btn">📤 Share Report</button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="provider-item">
+                                        <div class="provider-avatar">👩‍⚕️</div>
+                                        <div class="provider-info">
+                                            <div class="provider-name">Dr. Michael Chen</div>
+                                            <div class="provider-specialty">Cardiologist</div>
+                                            <div class="provider-access">Limited Access</div>
+                                        </div>
+                                        <div class="provider-actions">
+                                            <button class="share-btn">📤 Share Report</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="sharing-options">
+                                    <div class="option-item">
+                                        <input type="checkbox" checked>
+                                        <span>Symptom history (last 3 months)</span>
+                                    </div>
+                                    <div class="option-item">
+                                        <input type="checkbox" checked>
+                                        <span>Medication list</span>
+                                    </div>
+                                    <div class="option-item">
+                                        <input type="checkbox">
+                                        <span>Vital signs data</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- API and Third-party Apps -->
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">🔗</div>
+                            <h3>API & Third-party Integration</h3>
+                        </div>
+                        <p>Connect with your favorite health and wellness apps through our comprehensive API.</p>
+                        
+                        <div class="demo-container">
+                            <div class="api-demo">
+                                <div class="app-connections">
+                                    <div class="app-category">
+                                        <div class="category-title">Fitness Apps</div>
+                                        <div class="app-list">
+                                            <div class="app-item">
+                                                <span class="app-icon">🏃</span>
+                                                <span>Strava</span>
+                                                <span class="connection-status connected">✓</span>
+                                            </div>
+                                            <div class="app-item">
+                                                <span class="app-icon">🚴</span>
+                                                <span>MyFitnessPal</span>
+                                                <span class="connection-status">Connect</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="app-category">
+                                        <div class="category-title">Nutrition</div>
+                                        <div class="app-list">
+                                            <div class="app-item">
+                                                <span class="app-icon">🥗</span>
+                                                <span>Cronometer</span>
+                                                <span class="connection-status connected">✓</span>
+                                            </div>
+                                            <div class="app-item">
+                                                <span class="app-icon">🍎</span>
+                                                <span>Lose It!</span>
+                                                <span class="connection-status">Connect</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="app-category">
+                                        <div class="category-title">Mental Health</div>
+                                        <div class="app-list">
+                                            <div class="app-item">
+                                                <span class="app-icon">🧘</span>
+                                                <span>Headspace</span>
+                                                <span class="connection-status">Connect</span>
+                                            </div>
+                                            <div class="app-item">
+                                                <span class="app-icon">😌</span>
+                                                <span>Calm</span>
+                                                <span class="connection-status">Connect</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Pricing Section -->
+            <section class="pricing-section">
+                <div class="section-header">
+                    <h2>Choose Your Plan</h2>
+                    <p>Get started with the features that matter most to you</p>
+                </div>
+                
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <div class="plan-header">
+                            <h3>Basic</h3>
+                            <div class="plan-price">
+                                <span class="price">Free</span>
+                            </div>
+                        </div>
+                        <div class="plan-features">
+                            <div class="feature-item">✓ Basic symptom logging</div>
+                            <div class="feature-item">✓ Simple health tracking</div>
+                            <div class="feature-item">✓ Basic AI insights</div>
+                            <div class="feature-item">✓ Mobile app access</div>
+                            <div class="feature-item disabled">✗ Advanced analytics</div>
+                            <div class="feature-item disabled">✗ Provider sharing</div>
+                        </div>
+                        <button class="plan-btn">Get Started</button>
+                    </div>
+                    
+                    <div class="pricing-card featured">
+                        <div class="plan-badge">Most Popular</div>
+                        <div class="plan-header">
+                            <h3>Premium</h3>
+                            <div class="plan-price">
+                                <span class="price">$19.99</span>
+                                <span class="period">/month</span>
+                            </div>
+                        </div>
+                        <div class="plan-features">
+                            <div class="feature-item">✓ Everything in Basic</div>
+                            <div class="feature-item">✓ Advanced AI analysis</div>
+                            <div class="feature-item">✓ Predictive insights</div>
+                            <div class="feature-item">✓ Wearable integration</div>
+                            <div class="feature-item">✓ Provider portal access</div>
+                            <div class="feature-item">✓ Priority support</div>
+                        </div>
+                        <button class="plan-btn primary">Start Free Trial</button>
+                    </div>
+                    
+                    <div class="pricing-card">
+                        <div class="plan-header">
+                            <h3>Professional</h3>
+                            <div class="plan-price">
+                                <span class="price">$49.99</span>
+                                <span class="period">/month</span>
+                            </div>
+                        </div>
+                        <div class="plan-features">
+                            <div class="feature-item">✓ Everything in Premium</div>
+                            <div class="feature-item">✓ API access</div>
+                            <div class="feature-item">✓ Custom integrations</div>
+                            <div class="feature-item">✓ Advanced reporting</div>
+                            <div class="feature-item">✓ Team collaboration</div>
+                            <div class="feature-item">✓ Dedicated support</div>
+                        </div>
+                        <button class="plan-btn">Contact Sales</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA Section -->
+            <section class="cta-section">
+                <div class="cta-content">
+                    <h2>Ready to Transform Your Health Journey?</h2>
+                    <p>Join thousands of users who trust Symptom AI for intelligent health monitoring and insights.</p>
+                    <div class="cta-buttons">
+                        <a href="index.html" class="btn-primary">Start Free Trial</a>
+                        <a href="contact.html" class="btn-secondary">Schedule Demo</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>Symptom<span>AI</span></h2>
+                    <p>Your personal health assistant</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>Company</h3>
+                        <ul>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Press</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Resources</h3>
+                        <ul>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Legal</h3>
+                        <ul>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Cookie Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 SymptomAI. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="/scripts/features.js"></script>
+</body>
+</html>

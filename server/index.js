@@ -40,9 +40,10 @@ app.get('/logSymptom', (req, res) => {
   res.render('symptomlog')
 })
 
-
-
+app.get('/features', (req, res) => {
+  res.render('features')
+})
 
 app.listen(3000, () => {
-  console.log(`Example app listening on port 3000`)
+  console.log(`app listening on port 3000`)
 })
