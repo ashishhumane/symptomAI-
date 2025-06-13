@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    text-decoration: none;
 }
 
 body {
@@ -395,6 +396,9 @@ body {
     z-index: 999;
 }
 
+.quick-log-btn a {
+    color: white;
+}
 .quick-log-btn:hover {
     transform: scale(1.1);
     box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
