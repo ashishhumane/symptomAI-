@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const userModel = require('../models/user')
 const symptomModel = require('../models/symptom')
+const reportsModel = require('../models/reports')
 const medsModel = require('../models/medication')
 const isLoggedin = require('../middlewares/isLoggedin')
 const jwt = require('jsonwebtoken')
