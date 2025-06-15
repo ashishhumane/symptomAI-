@@ -88,16 +88,21 @@ router.post('/symptoms', async (req, res) => {
   res.redirect('/user/symptoms')
 })
 
-router.get('/generateReports', (req, res) => {  
+router.get('/generatereports', (req, res) => {  
   
   
   async function getGeminiResponse(userInput) {
 
     
     const symptoms = await symptomModel.find()
+
+    symptoms.forEach(element => {
+      userInput += element.symptomName
+    });
+
     userInput = `The patient is experiencing the following symptoms headache , cough.`
     try {
-      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${process.env.API_KEY}`, {
+      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyB83-azAwbZj8lBhIhRYTwuX6fHjqyP5DU`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
