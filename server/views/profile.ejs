@@ -15,11 +15,11 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="#">Dashboard</a></li>
-                    <li><a href="#">Symptoms</a></li>
-                    <li><a href="#">Reports</a></li>
-                    <li><a href="#" class="active">Profile</a></li>
-                    <li><a href="#" class="logout-btn">Logout</a></li>
+                    <li><a href="/user/dashboard">Dashboard</a></li>
+                    <li><a href="/user/symptoms">Symptoms</a></li>
+                    <li><a href="/user/reports">Reports</a></li>
+                    <li><a href="/user/profile" class="active">Profile</a></li>
+                    <li><a href="/auth/logout" class="logout-btn">Logout</a></li>
                 </ul>
             </nav>
         </header>
@@ -34,7 +34,7 @@
                             <button class="change-avatar-btn" id="changeAvatarBtn">📷</button>
                             <input type="file" id="avatarInput" accept="image/*" style="display: none;">
                         </div>
-                        <h3>John Doe</h3>
+                        <h3><%= user.fullName %></h3>
                         <p>Premium Member</p>
                     </div>
                     
@@ -157,7 +157,7 @@
                         <div class="settings-grid">
                             <div class="setting-card">
                                 <h3>Email Address</h3>
-                                <p>john.doe@email.com</p>
+                                <p><%= user.email  %></p>
                                 <button class="btn-outline" id="changeEmailBtn">Change Email</button>
                             </div>
                             

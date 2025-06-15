@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Login form validation and submission
   function validateLoginForm(e) {
-    e.preventDefault()
+    // e.preventDefault()
 
     let isValid = true
 

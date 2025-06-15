@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <link rel="stylesheet" href="/assets/stylesheets/chabot.css">
+    <script src="https://kit.fontawesome.com/64b6eb9656.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <div class="chatbot">
+        <div class="heading">
+            <div class="bot-avatar">🤖</div>
+            <div class="header-info">
+                <h1>SympAI</h1>
+                <p>AI-Powered Health Companian</p>
+            </div>
+        </div>
+        <div class="message-field"></div>
+        <div class="typing-indicator" id="typingIndicator">
+            <div class="message-avatar">🤖</div>
+            <div class="typing-dots">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+        </div>
+        <div class="user-mode">
+            <div class="mic">
+                <span><i class="fa-solid fa-microphone"></i></span>
+            </div>
+            <input type="text" class="user-input" placeholder="Ask me about your symptoms ,health pattern ,or well tips">
+            <button class="submit" id="submit1">📤 Send</button>
+        </div>
+    </div>
+</body>
+<script src="/scripts/chatbot.js" type="module"></script>
+</html>

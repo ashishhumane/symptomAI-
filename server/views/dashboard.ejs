@@ -15,7 +15,7 @@
                 <button class="emergency-btn">🚨 Emergency</button>
                 <div class="user-profile">
                     <div class="user-avatar">JD</div>
-                    <span>John Doe</span>
+                    <span><%= user.fullName %></span>
                 </div>
             </div>
         </div>
@@ -70,14 +70,18 @@
                     <span class="card-icon">📋</span>
                 </div>
                 <div class="symptom-timeline">
-                    <div class="symptom-item">
+                    
+                    <% symptoms.forEach((symptom) => { %>
+                      <div class="symptom-item">
                         <div class="symptom-severity severity-moderate"></div>
                         <div class="symptom-info">
-                            <div class="symptom-name">Headache</div>
-                            <div class="symptom-time">2 hours ago</div>
+                            <div class="symptom-name"><%= symptom.symptomName %></div>
+                            <div class="symptom-time"><%= symptom.duration %></div>
                         </div>
-                    </div>
-                    <div class="symptom-item">
+                    </div> 
+                <%    }) %>
+                    
+                    <!-- <div class="symptom-item">
                         <div class="symptom-severity severity-mild"></div>
                         <div class="symptom-info">
                             <div class="symptom-name">Fatigue</div>
@@ -97,7 +101,7 @@
                             <div class="symptom-name">Joint Pain</div>
                             <div class="symptom-time">2 days ago</div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
 
@@ -171,14 +175,12 @@
         <div class="sidebar">
             <!-- Quick Symptom Log -->
             <div class="quick-symptom-log">
-                <h3 class="section-title">Quick Log</h3>
-                <input type="text" class="symptom-input" placeholder="What symptoms are you experiencing?">
-                <div class="severity-selector">
-                    <button class="severity-btn" data-severity="mild">Mild</button>
-                    <button class="severity-btn" data-severity="moderate">Moderate</button>
-                    <button class="severity-btn" data-severity="severe">Severe</button>
-                </div>
-                <button class="log-btn">Log Symptom</button>
+                <h3 class="section-title">Add Medication</h3>
+                <form action="/user/dashboard" method="post">
+                    <input type="text" class="symptom-input" name="medName" placeholder="Medication name">
+                    <input type="time" class="symptom-input" name="time" placeholder="Add time">
+                    <button type="submit" class="log-btn">Add</button>
+                </form>
             </div>
 
             <!-- Recent Medications -->
@@ -227,7 +229,7 @@
     </div>
 
     <!-- Quick Log Button -->
-    <button class="quick-log-btn" title="Quick Log Symptom"><a href="/logSymptom">+</a></button>
+    <button class="quick-log-btn" title="Quick Log Symptom"><a href="/user/symptoms">+</a></button>
 
 
 </body>

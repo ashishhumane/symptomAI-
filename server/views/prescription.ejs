@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analyze Prescription - SympAI</title>
+    <link rel="stylesheet" href="/assets/stylesheets/pri.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="new2.html"> <button class="upload-btn"><i class="fa-solid fa-arrow-left"></i>  Back to home</button></a>
+                <a href="#" class="logo">🩺SympAI</a>
+                <div class="nav-links">
+                    <!-- <a href="#" class="nav-link">Features</a>
+                    <a href="#" class="nav-link">How it works</a>
+                    <a href="#" class="nav-link">Benefits</a>
+                    <a href="#" class="nav-link">Reviews</a> -->
+                    <div class="profile-icon">👤</div>
+                    <button class="emergency-btn"><i class="fa-solid fa-phone"></i> Emergency</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="hero-title">Analyze Your Prescription</h1>
+            <p class="hero-subtitle">
+                Upload your prescription and get instant insights about your medications, potential interactions, side effects, and personalized recommendations powered by advanced AI.
+            </p>
+        </div>
+    </section>
+
+    <!-- Upload Section -->
+    <section class="upload-section">
+        <div class="container">
+            <div class="upload-container">
+                <div class="upload-tabs">
+                    <button class="upload-tab active" onclick="switchTab('upload')">
+                        <i class="fa-solid fa-camera"></i> Upload Image
+                    </button>
+                    <button class="upload-tab" onclick="switchTab('manual')">
+                        <i class="fa-solid fa-keyboard"></i> Enter Manually
+                    </button>
+                </div>
+
+                <!-- Upload Tab -->
+                <div id="upload-content" class="tab-content active">
+                    <div class="upload-area" onclick="document.getElementById('fileInput').click()" ondrop="handleDrop(event)" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)">
+                        <div class="upload-icon">
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                        </div>
+                        <h3 class="upload-title">Drop your prescription here</h3>
+                        <p class="upload-subtitle">or click to browse files</p>
+                        <button class="upload-btn" type="button">Choose File</button>
+                        <input type="file" id="fileInput" class="file-input" accept="image/*,.pdf" onchange="handleFileSelect(event)">
+                        <div class="supported-formats">
+                            Supported formats: JPG, PNG, PDF • Max size: 10MB
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Manual Entry Tab -->
+                <div id="manual-content" class="tab-content">
+                    <div class="manual-input">
+                        <div class="form-group">
+                            <label class="form-label">Patient Information</label>
+                            <input type="text" class="form-input" placeholder="Full name and age (optional)" id="patientInfo">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Medications</label>
+                            <textarea class="form-textarea" placeholder="Enter each medication on a new line with dosage and frequency:&#10;e.g., Lisinopril 10mg - Once daily&#10;Metformin 500mg - Twice daily with meals" id="medicationsList"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Current Health Conditions (Optional)</label>
+                            <input type="text" class="form-input" placeholder="e.g., Diabetes, Hypertension, Heart Disease" id="conditions">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Known Allergies (Optional)</label>
+                            <input type="text" class="form-input" placeholder="e.g., Penicillin, Shellfish, Latex" id="allergies">
+                        </div>
+                        <button class="upload-btn" onclick="analyzeManualInput()">
+                            <i class="fa-solid fa-magnifying-glass"></i> Analyze Prescription
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Loading State -->
+                <div class="analysis-loading" id="loadingState">
+                    <div class="loading-spinner"></div>
+                    <div class="loading-text">Analyzing your prescription...</div>
+                    <div class="loading-steps">
+                        <div class="loading-step active" id="step1">
+                            <i class="fa-solid fa-eye"></i> Reading prescription
+                        </div>
+                        <div class="loading-step" id="step2">
+                            <i class="fa-solid fa-pills"></i> Identifying medications
+                        </div>
+                        <div class="loading-step" id="step3">
+                            <i class="fa-solid fa-triangle-exclamation"></i> Checking interactions
+                        </div>
+                        <div class="loading-step" id="step4">
+                            <i class="fa-solid fa-check-circle"></i> Generating report
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Analysis Results -->
+            <div class="analysis-results" id="analysisResults">
+                <div class="results-header">
+                    <h2 class="results-title">Prescription Analysis Complete</h2>
+                    <p class="results-subtitle">Here's what we found in your prescription</p>
+                </div>
+
+                <div class="results-grid">
+                    <!-- Medications Identified -->
+                    <div class="result-card">
+                        <div class="result-card-header">
+                            <div class="result-icon">
+                                <i class="fa-solid fa-pills"></i>
+                            </div>
+                            <h3 class="result-card-title">Medications Identified</h3>
+                        </div>
+                        <div class="medication-list" id="medicationsList">
+                            <!-- Medications will be populated here -->
+                        </div>
+                    </div>
+
+                    <!-- Drug Interactions -->
+                    <div class="result-card">
+                        <div class="result-card-header">
+                            <div class="result-icon">
+                                <i class="fa-solid fa-triangle-exclamation"></i>
+                            </div>
+                            <h3 class="result-card-title">Drug Interactions</h3>
+                        </div>
+                        <div id="interactionsList">
+                            <!-- Interactions will be populated here -->
+                        </div>
+                    </div>
+
+                    <!-- Side Effects -->
+                    <div class="result-card">
+                        <div class="result-card-header">
+                            <div class="result-icon">
+                                <i class="fa-solid fa-exclamation-circle"></i>
+                            </div>
+                            <h3 class="result-card-title">Potential Side Effects</h3>
+                        </div>
+                        <div id="sideEffectsList">
+                            <!-- Side effects will be populated here -->
+                        </div>
+                    </div>
+
+                    <!-- Recommendations -->
+                    <div class="result-card">
+                        <div class="result-card-header">
+                            <div class="result-icon">
+                                <i class="fa-solid fa-lightbulb"></i>
+                            </div>
+                            <h3 class="result-card-title">Recommendations</h3>
+                        </div>
+                        <div id="recommendationsList">
+                            <!-- Recommendations will be populated here -->
+                        </div>
+                    </div>
+
+                    <!-- Overall Assessment -->
+                    <div class="result-card full-width">
+                        <div class="result-card-header">
+                            <div class="result-icon">
+                                <i class="fa-solid fa-clipboard-check"></i>
+                            </div>
+                            <h3 class="result-card-title">Overall Assessment</h3>
+                        </div>
+                        <div id="overallAssessment">
+                            <!-- Assessment will be populated here -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn-primary" onclick="downloadReport()">
+                        <i class="fa-solid fa-download"></i> Download Report
+                    </button>
+                    <button class="btn-secondary" onclick="consultDoctor()">
+                        <i class="fa-solid fa-user-md"></i> Consult Doctor
+                    </button>
+                    <button class="btn-secondary" onclick="analyzeAnother()">
+                        <i class="fa-solid fa-plus"></i> Analyze Another
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Safety Guidelines -->
+    <section class="safety-section">
+        <div class="container">
+            <div class="safety-content">
+                <h2 class="safety-title">Important Safety Information</h2>
+                <p class="safety-subtitle">
+                    Our AI analysis is for informational purposes only. Always consult with healthcare professionals before making any medication decisions.
+                </p>
+
+                <div class="safety-grid">
+                    <div class="safety-item">
+                        <div class="safety-item-icon">
+                            <i class="fa-solid fa-user-md"></i>
+                        </div>
+                        <h3 class="safety-item-title">Consult Your Doctor</h3>
+                        <p class="safety-item-text">
+                            Always discuss any concerns about your medications with your healthcare provider before making changes.
+                        </p>
+                    </div>
+
+                    <div class="safety-item">
+                        <div class="safety-item-icon">
+                            <i class="fa-solid fa-exclamation-triangle"></i>
+                        </div>
+                        <h3 class="safety-item-title">Emergency Situations</h3>
+                        <p class="safety-item-text">
+                            If you experience severe side effects or allergic reactions, seek immediate medical attention.
+                        </p>
+                    </div>
+
+                    <div class="safety-item">
+                        <div class="safety-item-icon">
+                            <i class="fa-solid fa-shield-alt"></i>
+                        </div>
+                        <h3 class="safety-item-title">Your Privacy</h3>
+                        <p class="safety-item-text">
+                            Your prescription data is encrypted and never shared. We maintain strict privacy standards.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer CTA -->
+    <section class="footer-cta">
+        <div class="container">
+            <h2>Need More Help with Your Medications?</h2>
+            <p>Our healthcare experts are available 24/7 to answer your questions and provide personalized guidance.</p>
+            <a href="#" class="btn-primary">
+                Get Expert Consultation <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+   
+</body>
+<script src="/scripts/pri.js"></script>
+
+</html>

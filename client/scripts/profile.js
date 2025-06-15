@@ -292,7 +292,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Logout functionality
   document.querySelector(".logout-btn").addEventListener("click", (e) => {
-    e.preventDefault()
+    // e.preventDefault()
     if (confirm("Are you sure you want to logout?")) {
       alert("Logging out... In a real application, you would be redirected to the login page.")
       // In a real application: window.location.href = 'login.html'

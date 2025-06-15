@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find a Doctor - Symptom AI</title>
+    <link rel="stylesheet" href="/assets/stylesheets/find.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- In your <head> -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-sA+4Dj7B9fU4EdqSk0vXhIRi5mHAt8hx2rq+4s9jjkM=" crossorigin="" />
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-o9N1jWH0KyQo8WUy3phM2fH7sNs6+7lB46xw4q3shPs=" crossorigin=""></script>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-stethoscope"></i>
+                <span>Symptom AI</span>
+            </div>
+            <nav class="nav">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/findDocter" class="nav-link active">Find Doctor</a>
+                <a href="/user/symptoms" class="nav-link">Symptoms</a>
+                <a href="/about" class="nav-link">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <div class="page-header">
+                <h1>Find a Doctor Near You</h1>
+                <p>Search for healthcare professionals based on your location, symptoms, and specialty preferences</p>
+            </div>
+
+            <div class="content-grid">
+                <div class="search-section">
+                    <div class="search-card">
+                        <h2><i class="fas fa-search"></i> Search Doctors</h2>
+                        <form action="/find" method="post" id="doctorSearchForm" class="search-form">
+                            <div class="form-group">
+                                <label for="location">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Location
+                                </label>
+                                <div class="input-with-button">
+                                    <input type="text" id="location" name="location"
+                                        placeholder="Enter city, state, or ZIP code" required>
+                                    <button type="button" id="useCurrentLocation" class="location-btn"
+                                        title="Use current location">
+                                        <i class="fas fa-crosshairs"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="symptoms">
+                                    <i class="fas fa-thermometer-half"></i>
+                                    Primary Symptom
+                                </label>
+                                <select id="symptoms" name="symptoms" required>
+                                    <option value="">Select your primary symptom</option>
+                                    <option value="headache">Headache</option>
+                                    <option value="fever">Fever</option>
+                                    <option value="cough">Cough</option>
+                                    <option value="chest pain">Chest Pain</option>
+                                    <option value="abdominal pain">Abdominal Pain</option>
+                                    <option value="back pain">Back Pain</option>
+                                    <option value="joint pain">Joint Pain</option>
+                                    <option value="skin rash">Skin Rash</option>
+                                    <option value="fatigue">Fatigue</option>
+                                    <option value="dizziness">Dizziness</option>
+                                    <option value="nausea">Nausea</option>
+                                    <option value="shortness-breath">Shortness of Breath</option>
+                                    <option value="anxiety">Anxiety</option>
+                                    <option value="depression">Depression</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+
+                            <!-- <div class="form-group">
+                                <label for="specialty">
+                                    <i class="fas fa-user-md"></i>
+                                    Specialty
+                                </label>
+                                <select id="specialty" name="specialty" required>
+                                    <option value="">Select specialty</option>
+                                    <option value="general-practice">General Practice</option>
+                                    <option value="internal-medicine">Internal Medicine</option>
+                                    <option value="family-medicine">Family Medicine</option>
+                                    <option value="cardiology">Cardiology</option>
+                                    <option value="dermatology">Dermatology</option>
+                                    <option value="neurology">Neurology</option>
+                                    <option value="orthopedics">Orthopedics</option>
+                                    <option value="psychiatry">Psychiatry</option>
+                                    <option value="gastroenterology">Gastroenterology</option>
+                                    <option value="pulmonology">Pulmonology</option>
+                                    <option value="endocrinology">Endocrinology</option>
+                                    <option value="rheumatology">Rheumatology</option>
+                                    <option value="oncology">Oncology</option>
+                                    <option value="pediatrics">Pediatrics</option>
+                                    <option value="gynecology">Gynecology</option>
+                                    <option value="urology">Urology</option>
+                                    <option value="ophthalmology">Ophthalmology</option>
+                                    <option value="ent">ENT (Ear, Nose, Throat)</option>
+                                </select>
+                            </div> -->
+
+                            <!-- <div class="form-group">
+                                <label for="radius">
+                                    <i class="fas fa-ruler-combined"></i>
+                                    Search Radius
+                                </label>
+                                <select id="radius" name="radius">
+                                    <option value="5">Within 5 miles</option>
+                                    <option value="10" selected>Within 10 miles</option>
+                                    <option value="25">Within 25 miles</option>
+                                    <option value="50">Within 50 miles</option>
+                                </select>
+                            </div> -->
+
+                            <button type="submit" class="search-btn">
+                                <i class="fas fa-search"></i>
+                                Find Doctors
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="results-section" id="resultsSection" style="display: none;">
+                        <h3>Search Results</h3>
+                        <div id="doctorResults" class="doctor-results"></div>
+                    </div>
+                </div>
+
+                <div class="map-section">
+                    <div class="map-card">
+                        <h2><i class="fas fa-map"></i> Healthcare Provider</h2>
+                        <div class="doctor-results">
+                            <% doctors.forEach((doctor)=> { %>
+                                <div class="doctor-card">
+                                    <div class="doctor-header">
+                                        <div class="doctor-avatar">
+                                            DR
+                                        </div>
+                                        <h2 class="doctor-name"></h2>
+                                        <%= doctor.fullName %>
+                                            </h2>
+                                            <p class="doctor-specialty">
+                                                <%= doctor.specialty %>
+                                            </p>
+                                    </div>
+
+                                    <div class="doctor-info">
+                                        <div class="info-item">
+                                            <span class="info-icon">📞</span>
+                                            <span class="info-text">
+                                                <%= doctor.email %>
+                                            </span>
+                                        </div>
+
+                                        <div class="info-item">
+                                            <span class="info-icon">📍</span>
+                                            <span class="info-text">
+                                                <%= doctor.location %>
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <button class="appointment-btn" onclick="bookAppointment()">
+                                        Book Appointment
+                                    </button>
+                                </div>
+                                <% }) %>
+                        </div>
+                    </div>
+
+                    <!-- <div id="map" class="map-container">
+                            <div id="map1" class="map-placeholder">
+                                <i class="fas fa-map-marked-alt"></i>
+
+                            </div>
+                        </div> -->
+                    <!-- <div class="location-info" id="locationInfo">
+                            <i class="fas fa-info-circle"></i>
+                            <span>Detecting your location...</span>
+                        </div> -->
+                </div>
+            </div>
+        </div>
+        <!-- doctor cards  -->
+
+        </div>
+    </main>
+
+
+</body>
+
+</html>

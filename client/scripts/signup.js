@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Form validation function
   function validateForm(e) {
-    e.preventDefault()
+    // e.preventDefault()
 
     let isValid = true
 
@@ -113,9 +113,9 @@ document.addEventListener("DOMContentLoaded", () => {
     formElement.style.display = "none"
 
     // In a real application, you would redirect to the dashboard or send a verification email
-    setTimeout(() => {
-      alert("In a real application, you would be redirected to the dashboard or asked to verify your email.")
-    }, 2000)
+    // setTimeout(() => {
+    //   alert("In a real application, you would be redirected to the dashboard or asked to verify your email.")
+    // }, 2000)
   }
 
   // Add event listener to form submit
